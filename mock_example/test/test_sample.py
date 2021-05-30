@@ -14,6 +14,7 @@ def test_guess_number(mock_roll_dice, _input, expected):
 
 @mock.patch("mock_example.app.sample.requests.get")
 def test_get_ip(mock_requests_get):
-    mock_response = mock.Mock(**{"status_code": 200, "json.return_value": {"origin": "0.0.0.0"}})
+    _dict = {"status_code": 200, "json.return_value": {"origin": "0.0.0.0"}}
+    mock_response = mock.Mock(**_dict)
     mock_requests_get.return_value = mock_response
     assert get_ip() == "0.0.0.0"
